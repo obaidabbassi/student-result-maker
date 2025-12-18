@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Result Form</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+
+    <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+
+
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center/cover;
+      margin: 0;
+      padding: 0;
+
+
+    }
+    .overlay {
+      background: rgba(255, 255, 255, 0.8);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      width: 100%;
+      max-width: 600px;
+      
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.16);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
+
+padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+    
+      font-weight: 600;
+    }
+    h5 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    p{
+   text-align: center;
+   
+      color: #555;
+
+    }
+    label {
+      font-weight: 600;
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #aaa;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .subject-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .header-img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .selection {
+      display: block;
+      width: 95%;
+      padding: 10px;
+        border-radius: 10px;
+      border: 1px solid #aaa;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    #hide-show {
+      display: none;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <div class="card">
+
+      <img class="header-img" src="children.png" alt="School" />
+<p class="text-center">Welcome to Software</p>
+      <h1>Student Result Maker</h1>
+      <h5 class="text-center">Please fill in the details below to generate the result card.</h5>
+
+      <form id="resultForm">
+
+      <label for="grade">Select Grade</label>
+<select id="grade" required class="selection">
+    <option value="" disabled selected>Select grade</option>
+    <option value="ECE">ECE</option>
+    <option value="Nursery">Nursery</option>
+    <option value="One">One</option>
+    <option value="Two">Two</option>
+    <option value="Three">Three</option>
+    <option value="Four">Four</option>
+    <option value="Five">Five</option>
+    <option value="Six">Six</option>
+</select>
+
+
+        <label>Student Name</label>
+        <input type="text" id="name" placeholder="Enter student name"  />
+
+
+
+
+<div id="hide-show">
+
+        <label>Total Marks</label>
+        <input type="number" id="total" placeholder="e.g., 600"  />
+
+        <div class="subject-grid p-2">
+          <div id="en">
+            <label>English</label>
+            <input type="number" id="eng" placeholder="Marks"/>
+          </div>
+          <div id="ur">
+            <label>Urdu</label>
+            <input type="number" id="urdu" placeholder="Marks"  />
+          </div>
+          <div id="ma">
+            <label>Maths</label>
+            <input type="number" id="math" placeholder="Marks"  />
+          </div>
+          <div id="sc">
+            <label>Science</label>
+            <input type="number" id="sci" placeholder="Marks"  />
+          </div>
+          <div id="ss">
+            <label>S.St</label>
+            <input type="number" id="sst" placeholder="Marks" />
+          </div>
+
+          <div id="is">
+            <label>Islamiat</label>
+            <input type="number" id="isl" placeholder="Marks"  />
+          </div>
+    <div id="gkk">
+            <label>G.K</label>
+            <input type="number" id="gk" placeholder="Marks"  />
+          </div>
+
+    <div id="co">
+            <label>Computer</label>
+            <input type="number" id="comp" placeholder="Marks"  />
+          </div>
+
+ <div id="his">
+            <label>History/Geography</label>
+            <input type="number" id="hisgeo" placeholder="Marks" />
+          </div>
+           <div id="tQ">
+            <label>Tarjumatul Quran</label>
+            <input type="number" id="tq" placeholder="Marks"  />
+          </div>
+
+
+
+
+        </div>
+
+        <button type="submit">Generate Result Card</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+$("#grade").click(function(){
+
+
+
+
+    const selectedGrade = $("#grade").val(); // gets the selected value
+
+
+// if ECE and Nursery is selected
+    if (selectedGrade=="ECE" || selectedGrade=="Nursery") {
+       
+           $("#hide-show").show();
+      $("#en").show();
+        $("#ur").show();
+        $("#ma").show();
+    
+    
+        $("#is").hide();  
+        $("#gkk").hide();
+
+        $("#sc").hide();
+        $("#ss").hide();
+        $("#co").hide();
+        $("#his").hide();
+        $("#tQ").hide();
+
+
+                      
+handleFormECENursery();
+
+  }
+
+
+
+// if First, Second and Third grade is selected
+else if (selectedGrade=="Three" ||selectedGrade=="One"||selectedGrade=="Two") {
+       
+           $("#hide-show").show();
+      $("#en").show();
+        $("#ur").show();
+        $("#ma").show();
+    
+    
+        $("#is").show();  
+        $("#gkk").show();
+        $("#sc").hide();
+        $("#ss").hide();
+        $("#co").hide();
+        $("#his").hide();
+        $("#tQ").hide();
+
+       handleFormUptoThree();
+
+}
+
+
+
+
+
+// if Fourth and Fifth grade is selected
+
+    else if (selectedGrade=="Four" || selectedGrade=="Five") {
+       
+           $("#hide-show").show();
+      $("#en").show();
+        $("#ur").show();
+        $("#ma").show();
+    
+    
+        $("#is").show();  
+        $("#gkk").hide();
+        $("#sc").show();
+        $("#ss").show();
+        $("#co").hide();
+        $("#his").hide();
+        $("#tQ").hide();
+handleFormFourFive();
+}
+
+// if Sixth grade is selected
+
+ else if (selectedGrade=="Six") {
+       
+           $("#hide-show").show();
+      $("#en").show();
+        $("#ur").show();
+        $("#ma").show();
+         $("#co").show();
+        $("#his").show();
+        $("#tQ").show();
+        $("#is").show();  
+        $("#gkk").hide();
+        $("#sc").show();
+        $("#ss").hide(); 
+          
+ handleFormSix();
+
+  }
+ 
+
+
+
+
+// main function end
+});
+
+
+
+
+
+
+//Logic for ECE and Nursery form submission
+function handleFormECENursery(){
+
+
+
+  $("#resultForm").submit(function (e) {
+      e.preventDefault();
+
+alert("ECE Nursery form is being submitted..")
+
+     const data = {
+    name: $("#name").val(),
+    grade: $("#grade").val(),
+    total: Number($("#total").val()),
+    eng: Number($("#eng").val()),
+    urdu: Number($("#urdu").val()),
+    maths: Number($("#math").val()),
+    
+};
+
+
+      alert("Data ready to send to backend:\n" + JSON.stringify(data, null, 2));
+
+   $.ajax({
+url: "http://localhost:8080/hit",
+  type: "POST",
+  contentType: "application/json",
+  data: JSON.stringify(data),
+  success: function(res){
+     
+    toastr.success("Result card generated successfully!");
+  },
+    error: function(err){
+            toastr.error("Something went wrong!", "Error");
+        }
+});
+    });
+}
+
+
+
+//Logic for First, Second and Third grade form submission
+
+function handleFormUptoThree(){
+
+ $("#resultForm").submit(function (e) {
+      e.preventDefault();
+
+
+
+     const data = {
+    name: $("#name").val(),
+    grade: $("#grade").val(),
+    total: Number($("#total").val()),
+    eng: Number($("#eng").val()),
+    urdu: Number($("#urdu").val()),
+    maths: Number($("#math").val()),
+    isl: Number($("#isl").val()),
+    gk: Number($("#gk").val())
+    
+};
+
+
+      alert("Data ready to send to backend:\n" + JSON.stringify(data, null, 2));
+
+   $.ajax({
+url: "http://localhost:8080/hit",
+  type: "POST",
+  contentType: "application/json",
+  data: JSON.stringify(data),
+  success: function(res){
+     
+    toastr.success("Result card generated successfully!");
+  },
+    error: function(err){
+            toastr.error("Something went wrong!", "Error");
+        }
+});
+    });
+
+
+
+}
+
+
+//Logic for Fourth and Fifth grade form submission
+function handleFormFourFive(){
+
+
+$("#resultForm").submit(function (e) {
+      e.preventDefault();
+
+alert("Four Five is being submitted..")
+
+     const data = {
+    name: $("#name").val(),
+    grade: $("#grade").val(),
+    total: Number($("#total").val()),
+    eng: Number($("#eng").val()),
+    urdu: Number($("#urdu").val()),
+    maths: Number($("#math").val()),
+    isl: Number($("#isl").val()),
+    sst: Number($("#sst").val()),
+    sci: Number($("#sci").val())
+    
+};
+
+
+      alert("Data ready to send to backend:\n" + JSON.stringify(data, null, 2));
+
+   $.ajax({
+url: "http://localhost:8080/hit",
+  type: "POST",
+  contentType: "application/json",
+  data: JSON.stringify(data),
+  success: function(res){
+     
+    toastr.success("Result card generated successfully!");
+  },
+    error: function(err){
+            toastr.error("Something went wrong!", "Error");
+        }
+});
+    });
+
+
+}
+
+
+//Logic for Sixth grade form submission
+function handleFormSix(){
+
+$("#resultForm").submit(function (e) {
+      e.preventDefault();
+
+alert("Six is being submitted..")
+
+     const data = {
+    name: $("#name").val(),
+    grade: $("#grade").val(),
+    total: Number($("#total").val()),
+    eng: Number($("#eng").val()),
+    urdu: Number($("#urdu").val()),
+    maths: Number($("#math").val()),
+    isl: Number($("#isl").val()),
+    his: Number($("#hisgeo").val()),
+    sci: Number($("#sci").val()),
+    comp: Number($("#comp").val()),
+    tq: Number($("#tq").val())
+    
+};
+
+
+      alert("Data ready to send to backend:\n" + JSON.stringify(data, null, 2));
+
+   $.ajax({
+url: "http://localhost:8080/hit",
+  type: "POST",
+  contentType: "application/json",
+  data: JSON.stringify(data),
+  success: function(res){
+     
+    toastr.success("Result card generated successfully!");
+  },
+    error: function(err){
+            toastr.error("Something went wrong!", "Error");
+        }
+});
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+  </script>
+</body>
+</html>
